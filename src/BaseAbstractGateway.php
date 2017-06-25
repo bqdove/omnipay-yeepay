@@ -2,26 +2,15 @@
 
 namespace Omnipay\Yeepay;
 
-use Omnipay\Yeepay\Requests\YeepayCompletePurchaseRequest;
-use Omnipay\Yeepay\Requests\YeepayPurchaseRequest;
 use Omnipay\Common\AbstractGateway;
+use Omnipay\Yeepay\Requests\YeepayCompletePurchaseRequest;
 
-class Gateway extends AbstractGateway
+abstract class BaseAbstractGateway extends AbstractGateway
 {
 
     public function getDefaultParameters()
     {
         return [];
-    }
-    
-    public function getName()
-    {
-        return 'Yeepay Gateway';
-    }
-
-    public function purchase(array $parameters = [])
-    {
-        return $this->createRequest(YeepayPurchaseRequest::class, $parameters);
     }
 
     public function completePurchase(array $parameters = [])

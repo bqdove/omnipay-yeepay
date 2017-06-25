@@ -12,7 +12,7 @@ use Omnipay\Common\Exception\InvalidRequestException;
  * Class YeepayPurchaseRequest
  * @package Omnipay\Yeepay\Requests
  */
-class YeepayPurchaseRequest extends AbstractRequest
+abstract class YeepayPurchaseRequest extends AbstractRequest
 {
 
     public function getData()
@@ -123,7 +123,7 @@ class YeepayPurchaseRequest extends AbstractRequest
         return $this;
     }
     
-    private function sign($params, $signType)
+    protected function sign($params, $signType)
     {
         $signer = new Signer($params);
         $signType = strtoupper($signType);
